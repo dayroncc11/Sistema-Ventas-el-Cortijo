@@ -1,0 +1,46 @@
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### PATRONES ADICIONALES (del .gitignore 2) ###
+*.class                 # Ignora todos los archivos compilados de Java.
+*.log                   # Ignora todos los archivos de registro.
+*.ctxt                  # Ignora archivos específicos del IDE BlueJ.
+.mtj.tmp/               # Ignora directorios temporales de Mobile Tools for Java (J2ME).
+*.nar                   # Ignora archivos de paquetes NAR (Native ARchive).
+*.ear                   # Ignora archivos de paquetes EAR (Enterprise Archive).
+*.zip                   # Ignora archivos ZIP.
+*.tar.gz                # Ignora archivos TAR.GZ.
+*.rar                   # Ignora archivos RAR.
+hs_err_pid* # Ignora logs de fallos de la HotSpot JVM (errores críticos de la Máquina Virtual de Java).
+replay_pid* # Ignora archivos de replay de la JVM HotSpot.
+env.properties          # Ignora archivos de propiedades de entorno, que a menudo contienen configuraciones sensibles o específicas del entorno.

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - El Cortijo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Nunito', 'sans-serif'] },
+          colors: {
+            primary: '#F59E0B',   // naranja alimento
+            secondary: '#16A34A', // verde natural
+            textMain: '#1F2937',
+            textSoft: '#6B7280'
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' }
+            }
+          },
+          animation: {
+            float: 'float 4s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #FEF3C7, #DCFCE7);
+      overflow: hidden;
+    }
+    .btn {
+      padding: 0.8rem;
+      border-radius: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      transition: transform 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .dog {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      background-size: cover;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.9;
+    }
+    .dog.one {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/194/194279.png');
+    }
+    .dog.two {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+    }
+    .dog.three {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1998/1998627.png');
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center relative">
+
+<!-- Perritos flotando -->
+<div class="dog one" style="top:10%; left:5%; animation-delay:0s;"></div>
+<div class="dog two" style="top:60%; left:85%; animation-delay:2s;"></div>
+<div class="dog three" style="top:75%; left:25%; animation-delay:4s;"></div>
+
+<main class="w-full max-w-4xl mx-auto p-4 z-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 rounded-2xl shadow-2xl bg-white overflow-hidden">
+
+    <!-- FORMULARIO -->
+    <div class="p-10">
+      <h2 class="text-4xl font-extrabold text-textMain mb-2">
+        🐶 El Cortijo
+      </h2>
+      <p class="text-textSoft mb-8">
+        Tienda especializada en alimento para perritos
+      </p>
+
+      <form class="space-y-6" action="/perform_login" method="post">
+        <input
+                type="text"
+                name="username"
+                placeholder="DNI"
+                required
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary"
+        >
+
+        <input
+                type="password"
+                name="password"
+                placeholder="Contraseña"
+                required
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-secondary"
+        >
+
+        <div class="flex items-center">
+          <input id="remember" type="checkbox" class="h-4 w-4 text-primary">
+          <label for="remember" class="ml-2 text-sm text-textSoft">
+            Recordarme
+          </label>
+        </div>
+
+        <button
+                type="submit"
+                class="w-full btn bg-gradient-to-r from-orange-400 to-green-500 text-white"
+        >
+          Ingresar
+        </button>
+
+        <p class="text-sm text-center text-textSoft">
+          ¿No tienes acceso?
+          <span class="font-bold text-primary">Contacta al administrador</span>
+        </p>
+      </form>
+    </div>
+
+    <!-- PANEL DERECHO -->
+    <div class="hidden md:flex items-center justify-center text-center text-white p-12"
+         style="background: linear-gradient(135deg, #F59E0B, #16A34A);">
+      <div>
+        <h3 class="text-3xl font-extrabold animate-float">
+          Amor y nutrición en cada croqueta 🦴
+        </h3>
+        <p class="mt-4 opacity-90">
+          Gestiona ventas, clientes y stock de alimento canino
+          de forma rápida y segura.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('error')) {
+      alert('DNI o contraseña incorrectos.');
+    }
+    if (params.has('logout')) {
+      alert('Sesión cerrada correctamente.');
+    }
+  });
+</script>
+
+</body>
+</html>
